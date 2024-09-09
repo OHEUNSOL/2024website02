@@ -75,7 +75,7 @@ const addUser = () => {
   left: 0;
   width: 100%;
   height: 100vh; /* Viewport Height: 화면의 100%를 차지 */
-  background: url(../images/food.jpg) no-repeat center center;
+  background: url(../assets/images/food.jpg) no-repeat center center;
   background-size: cover;
   .container {
     width: 400px;

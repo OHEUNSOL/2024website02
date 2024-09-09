@@ -4,21 +4,21 @@ export default createStore({
   state: {
     userData: [
       {
-        userid: "hyejuzeonza",
+        userid: "banana",
         password: "123",
-        username: "윤혜주",
+        username: "바나나",
         image: "https://picsum.photos/100",
       },
       {
-        userid: "avokido",
+        userid: "apple",
         password: "123",
-        username: "오은솔",
+        username: "사과",
         image: "https://picsum.photos/100",
       },
       {
-        userid: "10ganzi",
+        userid: "melon",
         password: "123",
-        username: "이예린",
+        username: "메론",
         image: "https://picsum.photos/100",
       },
     ],
@@ -234,9 +234,27 @@ export default createStore({
       state.userData.push(payload);
     },
 
+    deleteUser(state, userid) {
+      state.userData = state.userData.filter((user) => user.userid !== userid);
+    },
+    updateUser(state, updatedUser) {
+      const index = state.userData.findIndex(
+        (user) => user.userid === updatedUser.oldUserid
+      );
+      if (index !== -1) {
+        state.userData.splice(index, 1, {
+          userid: updatedUser.userid,
+          password: updatedUser.password,
+          username: updatedUser.username,
+          image: updatedUser.image,
+        });
+      }
+    },
+
     setCategoryFilter(state, categories) {
       state.filters.categories = categories;
     },
+
     setDistrictFilter(state, districts) {
       state.filters.districts = districts;
     },
